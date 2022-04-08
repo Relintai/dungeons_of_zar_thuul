@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/World.gd" type="Script" id=1]
+[ext_resource path="res://tilesets/denzi_public_domain/denzi_public_domain_world.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tilesets/denzi_32x32_orthogonal/denzi_32x32_orthogonal_world.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilesets/dc_32x32/dc_32x32_world.tscn" type="PackedScene" id=4]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 1 )
+level_paths = [ NodePath("Level0"), NodePath("World"), NodePath("World2") ]
+
+[node name="Level0" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="World" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="World2" parent="." instance=ExtResource( 4 )]
+visible = false
