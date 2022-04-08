@@ -263,6 +263,7 @@ Node="input/actionbar_5_11"
 
 config/name="Dungeons of Zar'Thuul"
 run/main_scene="res://scenes/Main.tscn"
+run/low_processor_mode=true
 config/icon="res://icon.png"
 config/version="0.1"
 
