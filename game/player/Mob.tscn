@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui/nameplates/NamePlate.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Mob.gd" type="Script" id=3]
 
 [sub_resource type="EntityResourceHealth" id=1]
@@ -13,7 +12,6 @@ radius = 20.0
 
 [node name="Mob" type="Entity" groups=["mobs"]]
 body_path = NodePath("KinematicBody2D")
-character_skeleton_path = NodePath("KinematicBody2D/Character")
 sresources = [ SubResource( 1 ), SubResource( 2 ) ]
 script = ExtResource( 3 )
 
@@ -23,5 +21,3 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 3 )
-
-[node name="Character" parent="KinematicBody2D" instance=ExtResource( 2 )]
