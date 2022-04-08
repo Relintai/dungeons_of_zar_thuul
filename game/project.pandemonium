@@ -216,56 +216,55 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 @"HumanoidCharacterBones2D": "",
-@"CharacterAtlas2D": "",
-@"CharacterSkeketonAttachPoint": "",
-@"GameModule": "",
-@"PlayerGD": "",
-@"GECanvas": "",
-@"GEBrush": "",
 @"GECut": "",
-@"ItemVisual2D": "",
-@"MobGD": "",
-@"PlayerMaster": "",
-@"SpeedResource": "",
-@"GELayer": "",
+@"GEBrush": "",
+@"GECanvas": "",
+@"PlayerGD": "",
+@"GameModule": "",
+@"CharacterSkeketonAttachPoint": "",
+@"CharacterAtlas2D": "",
 @"GEDarken": "",
-@"CharacterAtlasEntry2D": "",
-@"EntityAIGD": "",
-@"EntityDataGD": "",
-@"GEAction": "",
-@"GEBucket": "",
+@"GELayer": "",
+@"SpeedResource": "",
+@"PlayerMaster": "",
+@"MobGD": "",
+@"ItemVisual2D": "",
 @"GERect": "",
-@"CharacterSkeleton2DGD": "",
-@"ItemVisualEntry2D": "",
-@"SpellEffectVisualBasic": "",
+@"GEBucket": "",
+@"GEAction": "",
+@"EntityDataGD": "",
+@"EntityAIGD": "",
+@"CharacterAtlasEntry2D": "",
 @"SpellGD": "",
-@"UIWindowModule": "",
+@"SpellEffectVisualBasic": "",
+@"ItemVisualEntry2D": "",
+@"CharacterSkeleton2DGD": "",
 @"GELine": "",
-@"Main": "",
-@"ManaResource": "",
-@"Menu": "",
-@"UIGuiChildModule": "",
-@"GEUtils": "",
+@"UIWindowModule": "",
 @"GEPasteCut": "",
-@"DisplayPlayerGD": "",
-@"HealthResource": "",
-@"ItemTemplateGD": "",
+@"GEUtils": "",
+@"UIGuiChildModule": "",
+@"Menu": "",
+@"ManaResource": "",
+@"Main": "",
 @"GERainbow": "",
-@"LayeredTextureMaker": "",
-@"BrushPrefabs": "",
-@"GEBrighten": "",
+@"ItemTemplateGD": "",
+@"HealthResource": "",
+@"DisplayPlayerGD": "",
+@"GEPencil": "",
 @"GEMultiLine": "",
-@"GEPencil": ""
+@"GEBrighten": "",
+@"BrushPrefabs": "",
+@"LayeredTextureMaker": ""
 }
 Node="input/actionbar_5_11"
 
 [application]
 
-config/name="Broken Seals Roguelike"
-config/description="An open source third person RPG "
+config/name="Dungeons of Zar'Thuul"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
-config/version="0.2"
+config/version="0.1"
 
 [autoload]
 
