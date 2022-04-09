@@ -22,30 +22,38 @@ class_name Menu
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-export(int, "Character Select", "Character Create") var start_menu : int = 0
+export(int, "Main Menu", "Character Select", "Character Create") var start_menu : int = 0
+export (NodePath) var main_menu_scene : NodePath
 export (NodePath) var character_selector_scene : NodePath
 export (NodePath) var charcer_creation_scenes : NodePath
 
 enum StartMenuTypes {
-	CHARACTER_SELECT, CHARACTER_CREATE
+	MAIN_MENU, CHARACTER_SELECT, CHARACTER_CREATE
 }
 
 func _ready():
 	switch_to_menu(start_menu)
 	
 func switch_to_menu(menu : int) -> void:
+	get_node(main_menu_scene).hide()
+	get_node(character_selector_scene).hide()
+	get_node(charcer_creation_scenes).hide()
 	
-	if menu == StartMenuTypes.CHARACTER_SELECT:
-		get_node(character_selector_scene).show()
-	else:
-		get_node(character_selector_scene).hide()
-		
-	if menu == StartMenuTypes.CHARACTER_CREATE:
+	if menu == StartMenuTypes.MAIN_MENU:
+		get_node(main_menu_scene).show()
+	elif menu == StartMenuTypes.CHARACTER_CREATE:
 		get_node(charcer_creation_scenes).show()
-	else:
-		get_node(charcer_creation_scenes).hide()
+	elif menu == StartMenuTypes.CHARACTER_SELECT:
+		get_node(character_selector_scene).show()
 
+func switch_to_character_selector() -> void:
+	switch_to_menu(StartMenuTypes.CHARACTER_SELECT)
 
+func switch_to_main_menu() -> void:
+	switch_to_menu(StartMenuTypes.MAIN_MENU)
+
+func switch_to_character_creator() -> void:
+	switch_to_menu(StartMenuTypes.CHARACTER_CREATE)
 
 func _on_About_pressed():
 	pass # Replace with function body.

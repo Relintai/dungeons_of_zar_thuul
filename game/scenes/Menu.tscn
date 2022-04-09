@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ui/theme/ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/menu/CharacterEntry.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/CharacterCreationMenu.gd" type="Script" id=6]
 [ext_resource path="res://ui/menu/character_creation_button_group.tres" type="ButtonGroup" id=7]
 [ext_resource path="res://ui/options/Options.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ui/menu/ExitButton.gd" type="Script" id=9]
 [ext_resource path="res://ui/about/About.tscn" type="PackedScene" id=20]
 
 [node name="Menu" type="Control"]
@@ -15,114 +16,183 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+main_menu_scene = NodePath("MainMenu")
 character_selector_scene = NodePath("CharacterSelectorMenu")
 charcer_creation_scenes = NodePath("CharacterCreationMenu")
 
-[node name="GameName" type="PanelContainer" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -61.0
-margin_right = 61.0
-margin_bottom = 26.0
+[node name="MainMenu" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="OptionsButton" type="MarginContainer" parent="MainMenu"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 396.0
+margin_bottom = 596.0
+mouse_filter = 2
+custom_constants/margin_right = 50
+custom_constants/margin_top = 100
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 100
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="GameName"]
-margin_left = 4.0
-margin_top = 5.0
-margin_right = 118.0
-margin_bottom = 20.0
-text = "Broken Seals"
+[node name="VBoxContainer2" type="VBoxContainer" parent="MainMenu/OptionsButton"]
+margin_left = 50.0
+margin_top = 100.0
+margin_right = 342.0
+margin_bottom = 492.0
+
+[node name="Label" type="Label" parent="MainMenu/OptionsButton/VBoxContainer2"]
+margin_right = 292.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Dungeons"
 align = 1
 valign = 1
 
-[node name="CharacterSelectorMenu" type="Control" parent="."]
+[node name="Label2" type="Label" parent="MainMenu/OptionsButton/VBoxContainer2"]
+margin_top = 66.0
+margin_right = 292.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "of"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="MainMenu/OptionsButton/VBoxContainer2"]
+margin_top = 132.0
+margin_right = 292.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Zar'Thuul"
+align = 1
+valign = 1
+
+[node name="Spacer" type="Control" parent="MainMenu/OptionsButton/VBoxContainer2"]
+margin_top = 198.0
+margin_right = 292.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/OptionsButton/VBoxContainer2"]
+margin_top = 264.0
+margin_right = 292.0
+margin_bottom = 392.0
+mouse_filter = 2
+
+[node name="Play" type="Button" parent="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer"]
+margin_right = 292.0
+margin_bottom = 26.5702
+rect_min_size = Vector2( 120, 0 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="About" type="Button" parent="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer"]
+margin_top = 34.0
+margin_right = 292.0
+margin_bottom = 60.5702
+rect_min_size = Vector2( 120, 0 )
+text = "About"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer"]
+margin_top = 68.0
+margin_right = 292.0
+margin_bottom = 94.5702
+rect_min_size = Vector2( 120, 0 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer"]
+margin_top = 102.0
+margin_right = 292.0
+margin_bottom = 128.57
+rect_min_size = Vector2( 120, 0 )
+text = "Exit"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterSelectorMenu" type="PanelContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 5 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 menu_path = NodePath("..")
-container_path = NodePath("CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer/ScrollContainer/Container")
-player_display_container_path = NodePath("../Node2D")
+container_path = NodePath("CharacterSelector/VBoxContainer/ScrollContainer/Container")
 character_button_group = ExtResource( 4 )
 character_entry = ExtResource( 2 )
 character_folder = "characters"
-load_button_path = NodePath("CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer/Load")
-renounce_button_path = NodePath("CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer/Delete")
-create_button_path = NodePath("CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer/New")
+load_button_path = NodePath("CharacterSelector/VBoxContainer/Load")
+renounce_button_path = NodePath("CharacterSelector/VBoxContainer/Delete")
+create_button_path = NodePath("CharacterSelector/VBoxContainer/New")
 
 [node name="CharacterSelector" type="MarginContainer" parent="CharacterSelectorMenu"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -289.0
-margin_top = -300.0
-margin_bottom = 300.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterSelectorMenu/CharacterSelector"]
-margin_top = 20.0
-margin_right = 269.0
-margin_bottom = 580.0
-alignment = 2
-
-[node name="CharacterSelector" type="PanelContainer" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer"]
-margin_right = 269.0
-margin_bottom = 560.0
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer/CharacterSelector"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 265.0
-margin_bottom = 556.0
+margin_right = 396.0
+margin_bottom = 596.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer"]
-margin_right = 261.0
-margin_bottom = 450.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterSelectorMenu/CharacterSelector"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 382.0
+margin_bottom = 582.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer"]
+margin_right = 372.0
+margin_bottom = 470.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Container" type="VBoxContainer" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer/ScrollContainer"]
-margin_right = 261.0
+[node name="Container" type="VBoxContainer" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer/ScrollContainer"]
+margin_right = 372.0
 size_flags_horizontal = 3
 
-[node name="Load" type="Button" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer"]
-margin_top = 458.0
-margin_right = 261.0
-margin_bottom = 484.57
+[node name="Load" type="Button" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer"]
+margin_top = 478.0
+margin_right = 372.0
+margin_bottom = 504.57
 text = "Load"
 
-[node name="New" type="Button" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer"]
-margin_top = 492.0
-margin_right = 261.0
-margin_bottom = 518.57
+[node name="New" type="Button" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer"]
+margin_top = 512.0
+margin_right = 372.0
+margin_bottom = 538.57
 text = "New"
 
-[node name="Delete" type="Button" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer"]
-margin_top = 526.0
-margin_right = 261.0
-margin_bottom = 552.57
+[node name="Delete" type="Button" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer"]
+margin_top = 546.0
+margin_right = 372.0
+margin_bottom = 572.57
 text = "Delete"
 
-[node name="PlayerDisplays" type="Node" parent="CharacterSelectorMenu"]
+[node name="Back" type="Button" parent="CharacterSelectorMenu/CharacterSelector/VBoxContainer"]
+margin_top = 546.0
+margin_right = 372.0
+margin_bottom = 572.57
+text = "Back"
 
 [node name="CharacterCreationMenu" type="Control" parent="."]
 visible = false
@@ -215,93 +285,18 @@ margin_right = 253.0
 margin_bottom = 115.57
 text = "Back"
 
-[node name="OptionsButton" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="OptionsButton"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 1004.0
-margin_bottom = 580.0
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="OptionsButton/Control"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -175.0
-margin_right = 111.0
-mouse_filter = 2
-alignment = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button2" type="Button" parent="OptionsButton/Control/VBoxContainer"]
-visible = false
-margin_top = 115.0
-margin_right = 120.0
-margin_bottom = 141.57
-rect_min_size = Vector2( 120, 0 )
-text = "Login"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button3" type="Button" parent="OptionsButton/Control/VBoxContainer"]
-visible = false
-margin_top = 115.0
-margin_right = 120.0
-margin_bottom = 141.57
-rect_min_size = Vector2( 120, 0 )
-text = "Register"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="About" type="Button" parent="OptionsButton/Control/VBoxContainer"]
-margin_top = 115.0
-margin_right = 120.0
-margin_bottom = 141.57
-rect_min_size = Vector2( 120, 0 )
-text = "About"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="OptionsButton/Control/VBoxContainer"]
-margin_top = 149.0
-margin_right = 120.0
-margin_bottom = 175.57
-rect_min_size = Vector2( 120, 0 )
-text = "Options"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Options" parent="." instance=ExtResource( 8 )]
 visible = false
 
 [node name="About" parent="." instance=ExtResource( 20 )]
 visible = false
 
-[node name="Node2D" type="Node2D" parent="."]
-[connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer/Load" to="CharacterSelectorMenu" method="load_character"]
-[connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer/New" to="." method="switch_to_menu" binds= [ 1 ]]
-[connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/CharacterSelector/VBoxContainer/Delete" to="CharacterSelectorMenu" method="renounce_character"]
+[connection signal="pressed" from="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer/Play" to="." method="switch_to_character_selector"]
+[connection signal="pressed" from="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer/About" to="About" method="show"]
+[connection signal="pressed" from="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer/Options" to="Options" method="show"]
+[connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/Load" to="CharacterSelectorMenu" method="load_character"]
+[connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/New" to="." method="switch_to_menu" binds= [ 1 ]]
+[connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/Delete" to="CharacterSelectorMenu" method="renounce_character"]
+[connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/Back" to="." method="switch_to_main_menu"]
 [connection signal="pressed" from="CharacterCreationMenu/CharacterSelector2/CharacterSelector/VBoxContainer/PanelContainer/VBoxContainer/Create" to="CharacterCreationMenu" method="create"]
 [connection signal="pressed" from="CharacterCreationMenu/CharacterSelector2/CharacterSelector/VBoxContainer/PanelContainer/VBoxContainer/Back" to="." method="switch_to_menu" binds= [ 0 ]]
-[connection signal="pressed" from="OptionsButton/Control/VBoxContainer/About" to="About" method="show"]
-[connection signal="pressed" from="OptionsButton/Control/VBoxContainer/Button" to="Options" method="show"]

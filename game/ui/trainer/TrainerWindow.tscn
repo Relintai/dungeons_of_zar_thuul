@@ -154,4 +154,5 @@ margin_right = 379.0
 margin_bottom = 26.5702
 rect_min_size = Vector2( 100, 0 )
 text = "Learn"
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer2/Button" to="." method="hide"]

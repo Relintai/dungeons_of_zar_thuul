@@ -35,12 +35,10 @@ export(bool) var automatic_character_load : bool = false
 export(bool) var only_one_character : bool = false
 
 var container : Node
-var player_display_container_node : Node
 
 func _ready():
 	container = get_node(container_path)
-	player_display_container_node = get_node(player_display_container_path)
-	
+
 	if container == null:
 		Logger.error("CharacterSelector not set up properly!")
 		
@@ -85,7 +83,7 @@ func refresh():
 					Logger.error("Save corrupted! Not Dict! " + file_name)
 					continue
 				
-				var display : Entity = ESS.entity_spawner.spawn_display_player(file_name, player_display_container_node.get_path())
+				var display : Entity = ESS.entity_spawner.spawn_display_player(file_name, get_path())
 				
 				var entity_data : EntityData = ESS.get_resource_db().get_entity_data(display.characterclass_id)
 				
@@ -93,9 +91,6 @@ func refresh():
 					print("EntityData not found!")
 					display.queue_free()
 					continue
-				
-				#player_display_container_node.add_child(display)
-				#display.owner = player_display_container_node
 				
 				#display.from_dict(p as Dictionary)
 				
@@ -147,8 +142,6 @@ func clear() -> void:
 		c.disconnect("pressed", self, "character_selection_changed")
 		c.queue_free()
 		
-	for e in player_display_container_node.get_children():
-		e.queue_free()
 
 func renounce_character() -> void:
 	var b : BaseButton = character_button_group.get_pressed_button()
@@ -198,13 +191,3 @@ func visibility_changed() -> void:
 	if visible:
 		refresh()
 		
-func character_selection_changed() -> void:
-	var b : BaseButton = character_button_group.get_pressed_button()
-	
-	if b == null:
-		return
-		
-	for e in player_display_container_node.get_children():
-		e.get_body().hide()
-		
-	b.entity.get_body().show()
