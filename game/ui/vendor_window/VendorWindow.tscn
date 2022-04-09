@@ -4,172 +4,163 @@
 [ext_resource path="res://ui/vendor_window/VendorWindow.gd" type="Script" id=4]
 [ext_resource path="res://ui/theme/ui_theme.tres" type="Theme" id=5]
 
-[node name="VendorWindow" type="Control"]
+[node name="VendorWindow" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource( 5 )
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-spell_entry_container_path = NodePath("PanelContainer/PagedContent/GridContainer")
-prev_button_path = NodePath("PanelContainer/PagedContent/Controls/HBoxContainer/Button2")
-next_button_path = NodePath("PanelContainer/PagedContent/Controls/HBoxContainer/Button")
+spell_entry_container_path = NodePath("PagedContent/GridContainer")
+prev_button_path = NodePath("PagedContent/Controls/HBoxContainer/Button2")
+next_button_path = NodePath("PagedContent/Controls/HBoxContainer/Button")
 show_not_learned = false
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-margin_left = 64.0
-margin_top = 39.0
-margin_right = 580.0
-margin_bottom = 507.0
+[node name="PagedContent" type="VBoxContainer" parent="."]
+margin_right = 400.0
+margin_bottom = 600.0
 
-[node name="PagedContent" type="VBoxContainer" parent="PanelContainer"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 512.0
-margin_bottom = 464.0
-
-[node name="Header" type="HBoxContainer" parent="PanelContainer/PagedContent"]
-margin_right = 508.0
+[node name="Header" type="HBoxContainer" parent="PagedContent"]
+margin_right = 400.0
 margin_bottom = 30.0
 
-[node name="Label" type="Label" parent="PanelContainer/PagedContent/Header"]
+[node name="Label" type="Label" parent="PagedContent/Header"]
 margin_top = 7.0
 margin_right = 36.0
 margin_bottom = 22.0
 text = "Vendor"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PagedContent/Header"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PagedContent/Header"]
 margin_left = 40.0
-margin_right = 464.0
+margin_right = 356.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Button" type="Button" parent="PanelContainer/PagedContent/Header"]
-margin_left = 468.0
-margin_right = 508.0
+[node name="Button" type="Button" parent="PagedContent/Header"]
+margin_left = 360.0
+margin_right = 400.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 40, 30 )
 text = "X"
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/PagedContent"]
+[node name="GridContainer" type="GridContainer" parent="PagedContent"]
 margin_top = 38.0
-margin_right = 508.0
-margin_bottom = 422.0
+margin_right = 400.0
+margin_bottom = 562.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 2
 
-[node name="ItemContainer" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
+[node name="ItemContainer" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 252.0
-margin_bottom = 60.0
+margin_right = 198.0
+margin_bottom = 84.0
+spell_button_path = NodePath("PanelContainer/HBoxContainer/Button")
 
-[node name="ItemContainer2" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
-margin_left = 256.0
+[node name="ItemContainer2" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
+margin_left = 202.0
 margin_top = 0.0
-margin_right = 508.0
-margin_bottom = 60.0
+margin_right = 400.0
+margin_bottom = 84.0
 
-[node name="ItemContainer3" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
+[node name="ItemContainer3" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 64.0
-margin_right = 252.0
-margin_bottom = 124.0
+margin_top = 88.0
+margin_right = 198.0
+margin_bottom = 172.0
 
-[node name="ItemContainer4" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
-margin_left = 256.0
-margin_top = 64.0
-margin_right = 508.0
-margin_bottom = 124.0
+[node name="ItemContainer4" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
+margin_left = 202.0
+margin_top = 88.0
+margin_right = 400.0
+margin_bottom = 172.0
 
-[node name="ItemContainer5" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
+[node name="ItemContainer5" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 128.0
-margin_right = 252.0
-margin_bottom = 188.0
+margin_top = 176.0
+margin_right = 198.0
+margin_bottom = 260.0
 
-[node name="ItemContainer6" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
-margin_left = 256.0
-margin_top = 128.0
-margin_right = 508.0
-margin_bottom = 188.0
+[node name="ItemContainer6" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
+margin_left = 202.0
+margin_top = 176.0
+margin_right = 400.0
+margin_bottom = 260.0
 
-[node name="ItemContainer7" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
+[node name="ItemContainer7" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 192.0
-margin_right = 252.0
-margin_bottom = 252.0
+margin_top = 264.0
+margin_right = 198.0
+margin_bottom = 348.0
 
-[node name="ItemContainer8" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
-margin_left = 256.0
-margin_top = 192.0
-margin_right = 508.0
-margin_bottom = 252.0
+[node name="ItemContainer8" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
+margin_left = 202.0
+margin_top = 264.0
+margin_right = 400.0
+margin_bottom = 348.0
 
-[node name="ItemContainer9" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
+[node name="ItemContainer9" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 256.0
-margin_right = 252.0
-margin_bottom = 316.0
+margin_top = 352.0
+margin_right = 198.0
+margin_bottom = 436.0
 
-[node name="ItemContainer10" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
-margin_left = 256.0
-margin_top = 256.0
-margin_right = 508.0
-margin_bottom = 316.0
+[node name="ItemContainer10" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
+margin_left = 202.0
+margin_top = 352.0
+margin_right = 400.0
+margin_bottom = 436.0
 
-[node name="ItemContainer11" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
+[node name="ItemContainer11" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 320.0
-margin_right = 252.0
-margin_bottom = 380.0
+margin_top = 440.0
+margin_right = 198.0
+margin_bottom = 524.0
 
-[node name="ItemContainer12" parent="PanelContainer/PagedContent/GridContainer" instance=ExtResource( 1 )]
-margin_left = 256.0
-margin_top = 320.0
-margin_right = 508.0
-margin_bottom = 380.0
+[node name="ItemContainer12" parent="PagedContent/GridContainer" instance=ExtResource( 1 )]
+margin_left = 202.0
+margin_top = 440.0
+margin_right = 400.0
+margin_bottom = 524.0
 
-[node name="Controls" type="MarginContainer" parent="PanelContainer/PagedContent"]
-margin_top = 430.0
-margin_right = 508.0
-margin_bottom = 460.0
+[node name="Controls" type="MarginContainer" parent="PagedContent"]
+margin_top = 570.0
+margin_right = 400.0
+margin_bottom = 600.0
 custom_constants/margin_right = 2
 custom_constants/margin_top = 2
 custom_constants/margin_left = 2
 custom_constants/margin_bottom = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PagedContent/Controls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PagedContent/Controls"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 506.0
+margin_right = 398.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button2" type="Button" parent="PanelContainer/PagedContent/Controls/HBoxContainer"]
-margin_right = 165.0
+[node name="Button2" type="Button" parent="PagedContent/Controls/HBoxContainer"]
+margin_right = 129.0
 margin_bottom = 26.5702
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "< Previous page"
 
-[node name="Spacer" type="Control" parent="PanelContainer/PagedContent/Controls/HBoxContainer"]
-margin_left = 169.0
-margin_right = 334.0
+[node name="Spacer" type="Control" parent="PagedContent/Controls/HBoxContainer"]
+margin_left = 133.0
+margin_right = 262.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="PanelContainer/PagedContent/Controls/HBoxContainer"]
-margin_left = 338.0
-margin_right = 504.0
+[node name="Button" type="Button" parent="PagedContent/Controls/HBoxContainer"]
+margin_left = 266.0
+margin_right = 396.0
 margin_bottom = 26.5702
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Next page >"
-[connection signal="pressed" from="PanelContainer/PagedContent/Header/Button" to="." method="hide"]
+
+[connection signal="pressed" from="PagedContent/Header/Button" to="." method="hide"]

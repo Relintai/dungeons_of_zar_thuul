@@ -21,7 +21,6 @@ character_selector_scene = NodePath("CharacterSelectorMenu")
 charcer_creation_scenes = NodePath("CharacterCreationMenu")
 
 [node name="MainMenu" type="PanelContainer" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 

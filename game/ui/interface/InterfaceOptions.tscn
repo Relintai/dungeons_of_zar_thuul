@@ -7,46 +7,54 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-actionbar_set_default_button_path = NodePath("VBoxContainer2/VBoxContainer/SetActionbarAsDefault")
+actionbar_set_default_button_path = NodePath("MarginContainer/VBoxContainer2/VBoxContainer/SetActionbarAsDefault")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1017.0
+margin_right = 393.0
 margin_bottom = 593.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
-margin_right = 1010.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 376.0
+margin_bottom = 576.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+margin_right = 366.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
 margin_top = 8.0
-margin_right = 966.0
+margin_right = 322.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 text = "Interface options"
 
-[node name="Button" type="Button" parent="VBoxContainer2/HBoxContainer"]
-margin_left = 970.0
-margin_right = 1010.0
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
+margin_left = 326.0
+margin_right = 366.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 40, 30 )
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
 margin_top = 34.0
-margin_right = 1010.0
-margin_bottom = 586.0
+margin_right = 366.0
+margin_bottom = 566.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SetActionbarAsDefault" type="Button" parent="VBoxContainer2/VBoxContainer"]
-margin_right = 1010.0
+[node name="SetActionbarAsDefault" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+margin_right = 366.0
 margin_bottom = 20.0
 text = "Set current actionbar setup as default"
 script = ExtResource( 1 )
-[connection signal="pressed" from="VBoxContainer2/HBoxContainer/Button" to="." method="hide"]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer/Button" to="." method="hide"]
