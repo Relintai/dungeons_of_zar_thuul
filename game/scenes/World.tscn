@@ -32,43 +32,6 @@ script = ExtResource( 9 )
 gui_base_path = NodePath("MarginContainer/GUI")
 buttons_path = NodePath("MarginContainer/GUI/Buttons")
 
-[node name="IngameMenu" parent="Town" instance=ExtResource( 8 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 393.0
-margin_bottom = 593.0
-
-[node name="MarginContainer" parent="Town/IngameMenu/Menu" index="0"]
-margin_right = 382.0
-margin_bottom = 582.0
-
-[node name="VBoxContainer" parent="Town/IngameMenu/Menu/MarginContainer" index="0"]
-margin_right = 368.0
-margin_bottom = 568.0
-
-[node name="Resume" parent="Town/IngameMenu/Menu/MarginContainer/VBoxContainer" index="0"]
-margin_top = 215.0
-margin_right = 358.0
-margin_bottom = 241.57
-
-[node name="Interface" parent="Town/IngameMenu/Menu/MarginContainer/VBoxContainer" index="1"]
-margin_top = 249.0
-margin_right = 358.0
-margin_bottom = 275.57
-
-[node name="Options" parent="Town/IngameMenu/Menu/MarginContainer/VBoxContainer" index="2"]
-margin_top = 283.0
-margin_right = 358.0
-margin_bottom = 309.57
-
-[node name="Exit" parent="Town/IngameMenu/Menu/MarginContainer/VBoxContainer" index="3"]
-margin_top = 317.0
-margin_right = 358.0
-margin_bottom = 343.57
-
 [node name="MarginContainer" type="MarginContainer" parent="Town"]
 margin_left = 4.0
 margin_top = 4.0
@@ -317,6 +280,47 @@ anchor_bottom = 1.0
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
+
+[node name="IngameMenu" parent="Town" instance=ExtResource( 8 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 396.0
+margin_bottom = 596.0
+
+[node name="Menu" parent="Town/IngameMenu" index="0"]
+margin_right = 388.0
+margin_bottom = 588.0
+
+[node name="MarginContainer" parent="Town/IngameMenu/Menu" index="0"]
+margin_right = 380.0
+margin_bottom = 580.0
+
+[node name="VBoxContainer" parent="Town/IngameMenu/Menu/MarginContainer" index="0"]
+margin_right = 366.0
+margin_bottom = 566.0
+
+[node name="Resume" parent="Town/IngameMenu/Menu/MarginContainer/VBoxContainer" index="0"]
+margin_top = 214.0
+margin_right = 356.0
+margin_bottom = 240.57
+
+[node name="Interface" parent="Town/IngameMenu/Menu/MarginContainer/VBoxContainer" index="1"]
+margin_top = 248.0
+margin_right = 356.0
+margin_bottom = 274.57
+
+[node name="Options" parent="Town/IngameMenu/Menu/MarginContainer/VBoxContainer" index="2"]
+margin_top = 282.0
+margin_right = 356.0
+margin_bottom = 308.57
+
+[node name="Exit" parent="Town/IngameMenu/Menu/MarginContainer/VBoxContainer" index="3"]
+margin_top = 316.0
+margin_right = 356.0
+margin_bottom = 342.57
 
 [connection signal="pressed" from="Town/MarginContainer/GUI/Buttons/Menu" to="Town/IngameMenu" method="show"]
 
