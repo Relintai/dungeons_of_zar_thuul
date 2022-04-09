@@ -230,54 +230,8 @@ func handle_gcd(info : SpellCastInfo) -> void:
 	if cooldown_global_cooldown_enabled and cast_cast_time < 0.01:
 		info.caster.gcd_starts(info.caster.get_gcd().scurrent)
 
-func add_spell_cast_effect(info : SpellCastInfo) -> void:
-	var basic_spell_effect : SpellEffectVisualBasic = visual_spell_effects as SpellEffectVisualBasic
-		
-	if basic_spell_effect != null:
-		if basic_spell_effect.spell_cast_effect_left_hand != null:
-			info.caster.get_character_skeleton().common_attach_point_add(EntityEnums.COMMON_SKELETON_POINT_LEFT_HAND, basic_spell_effect.spell_cast_effect_left_hand)
-		
-		if basic_spell_effect.spell_cast_effect_right_hand != null:
-			info.caster.get_character_skeleton().common_attach_point_add(EntityEnums.COMMON_SKELETON_POINT_RIGHT_HAND, basic_spell_effect.spell_cast_effect_right_hand)
-		
-func remove_spell_cast_effect(info : SpellCastInfo) -> void:
-	var basic_spell_effect : SpellEffectVisualBasic = visual_spell_effects as SpellEffectVisualBasic
-		
-	if basic_spell_effect != null:
-		if basic_spell_effect.spell_cast_effect_left_hand != null:
-			info.caster.get_character_skeleton().common_attach_point_remove(EntityEnums.COMMON_SKELETON_POINT_LEFT_HAND, basic_spell_effect.spell_cast_effect_left_hand)
-		
-		if basic_spell_effect.spell_cast_effect_right_hand != null:
-			info.caster.get_character_skeleton().common_attach_point_remove(EntityEnums.COMMON_SKELETON_POINT_RIGHT_HAND, basic_spell_effect.spell_cast_effect_right_hand)
-		
-func _notification_ccast(what, info):
-	if what == SpellEnums.NOTIFICATION_CAST_STARTED:
-		add_spell_cast_effect(info)
-	elif what == SpellEnums.NOTIFICATION_CAST_FAILED:
-		remove_spell_cast_effect(info)
-	elif what == SpellEnums.NOTIFICATION_CAST_FINISHED:
-		remove_spell_cast_effect(info)
-	elif what == SpellEnums.NOTIFICATION_CAST_INTERRUPTED:
-		remove_spell_cast_effect(info)
-	elif what == SpellEnums.NOTIFICATION_CAST_SUCCESS:
-		remove_spell_cast_effect(info)
-
-		if not is_instance_valid(info.target):
-			return
-		
-		var bse : SpellEffectVisualBasic = visual_spell_effects as SpellEffectVisualBasic
-			
-		if bse != null:
-			if bse.torso_spell_cast_finish_effect != null:
-				info.target.get_character_skeleton().common_attach_point_add_timed(EntityEnums.COMMON_SKELETON_POINT_TORSO, bse.torso_spell_cast_finish_effect_time)
-
-			if bse.root_spell_cast_finish_effect != null:
-				info.target.get_character_skeleton().common_attach_point_add_timed(EntityEnums.COMMON_SKELETON_POINT_ROOT, bse.root_spell_cast_finish_effect_time)
-
-
 func _son_spell_hit(info):
 	handle_effect(info)
-
 
 func _aura_sapply(info : AuraApplyInfo) -> void:
 #	var add : bool = false
@@ -324,34 +278,3 @@ func apply_mods(ad : AuraData):
 	
 func deapply_mods(ad : AuraData):
 	pass
-	
-
-func _con_aura_added(data : AuraData) -> void:
-	if data.owner.get_character_skeleton() == null or data.owner.get_character_skeleton().root_attach_point == null:
-		return
-	
-	var bse : SpellEffectVisualBasic = visual_spell_effects as SpellEffectVisualBasic
-		
-	if bse != null:
-		if bse.root_aura_effect != null:
-			if bse.root_aura_effect_time < 0.00001:
-				data.owner.get_character_skeleton().root_attach_point.add_effect(bse.root_aura_effect)
-			else:
-				data.owner.get_character_skeleton().root_attach_point.add_effect_timed(bse.root_aura_effect, bse.root_aura_effect_time)
-
-		if bse.torso_aura_effect != null:
-			if bse.torso_aura_effect_time < 0.00001:
-				data.owner.get_character_skeleton().torso_attach_point.add_effect(bse.torso_aura_effect)
-			else:
-				data.owner.get_character_skeleton().torso_attach_point.add_effect_timed(bse.torso_aura_effect, bse.torso_aura_effect_time)
-
-func _con_aura_removed(data : AuraData) -> void:
-	var bse : SpellEffectVisualBasic = visual_spell_effects as SpellEffectVisualBasic
-		
-	if bse != null:
-		if bse.root_aura_effect != null and bse.root_aura_effect_time < 0.00001:
-			data.owner.get_character_skeleton().root_attach_point.remove_effect(bse.root_aura_effect)
-			
-		if bse.torso_aura_effect != null and bse.torso_aura_effect_time < 0.00001:
-			data.owner.get_character_skeleton().torso_attach_point.remove_effect(bse.torso_aura_effect)
-

@@ -154,11 +154,6 @@ _global_script_classes=[ {
 "language": @"GDScript",
 "path": "res://scripts/resources/SpeedResource.gd"
 }, {
-"base": "SpellEffectVisual",
-"class": @"SpellEffectVisualBasic",
-"language": @"GDScript",
-"path": "res://scripts/resources/spell_effect_visual_basic.gd"
-}, {
 "base": "Spell",
 "class": @"SpellGD",
 "language": @"GDScript",
@@ -191,23 +186,22 @@ _global_script_class_icons={
 @"GameModule": "",
 @"LayeredTextureMaker": "",
 @"GEPencil": "",
-@"SpellGD": "",
-@"SpellEffectVisualBasic": "",
-@"GELine": "",
-@"UIWindowModule": "",
-@"GEPasteCut": "",
-@"GEUtils": "",
-@"UIGuiChildModule": "",
-@"Menu": "",
-@"ManaResource": "",
-@"Main": "",
-@"GERainbow": "",
-@"ItemTemplateGD": "",
-@"HealthResource": "",
-@"DisplayPlayerGD": "",
-@"GEMultiLine": "",
+@"BrushPrefabs": "",
 @"GEBrighten": "",
-@"BrushPrefabs": ""
+@"GEMultiLine": "",
+@"DisplayPlayerGD": "",
+@"HealthResource": "",
+@"ItemTemplateGD": "",
+@"GERainbow": "",
+@"Main": "",
+@"ManaResource": "",
+@"Menu": "",
+@"UIGuiChildModule": "",
+@"GEUtils": "",
+@"GEPasteCut": "",
+@"UIWindowModule": "",
+@"GELine": "",
+@"SpellGD": ""
 }
 Node="input/actionbar_5_11"
 

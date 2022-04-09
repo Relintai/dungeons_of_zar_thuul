@@ -56,8 +56,6 @@ var visibility_update_timer : float = randi()
 
 var tile_size : int = 32
 
-var _nameplate : Node
-
 var init : bool = false
 
 var touches : Array = Array()
@@ -92,14 +90,8 @@ func _enter_tree() -> void:
 func set_visibility(val : bool) -> void:
 	if val:
 		show()
-
-		if _nameplate:
-			_nameplate.show()
 	elif !val:
 		hide()
-		
-		if _nameplate:
-			_nameplate.hide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	#Not sure why yet, but _unhandled_input gets called even after set_process_unhandled_input(false)
@@ -389,9 +381,6 @@ func on_c_controlled_changed():
 	_controlled = entity.getc_is_controlled()
 	
 	if _controlled:
-		if _nameplate:
-			_nameplate.queue_free()
-			
 		camera = Camera2D.new()
 		camera.zoom = get_node("/root/Main").get_world_scale()
 		add_child(camera)
@@ -413,9 +402,6 @@ func on_c_controlled_changed():
 		
 #		set_process_input(false)
 		set_process_unhandled_input(false)
-		var nameplatescn : PackedScene = ResourceLoader.load("res://ui/nameplates/NamePlate.tscn")
-		_nameplate = nameplatescn.instance()
-		get_parent().add_child(_nameplate)
 		
 		set_visibility(false)
 		
