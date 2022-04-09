@@ -1,8 +1,7 @@
-[gd_resource type="Spell" load_steps=4 format=2]
+[gd_resource type="Spell" load_steps=3 format=2]
 
 [ext_resource path="res://entity_classes/naturalist/icons/aspect_of_scorpions.tres" type="Texture" id=1]
 [ext_resource path="res://scripts/spells/gd_spell_script.gd" type="Script" id=2]
-[ext_resource path="res://entity_classes/naturalist/effect_data/aspect_of_scorpions.tres" type="SpellEffectVisual" id=4]
 
 [resource]
 resource_name = "Aspect of Scorpions"
@@ -10,7 +9,6 @@ id = 17
 spell_type = 8
 rank = 1
 icon = ExtResource( 1 )
-visual_spell_effects = ExtResource( 4 )
 text_name = "Aspect of Scorpions"
 text_description = "Range: 26m.
 Casttime: {3}.

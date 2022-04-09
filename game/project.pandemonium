@@ -14,16 +14,6 @@ _global_script_classes=[ {
 "language": @"GDScript",
 "path": "res://addons/Godoxel/BrushPrefabs.gd"
 }, {
-"base": "CharacterAtlas",
-"class": @"CharacterAtlas2D",
-"language": @"GDScript",
-"path": "res://scripts/item_visuals/CharacterAtlas2D.gd"
-}, {
-"base": "CharacterAtlasEntry",
-"class": @"CharacterAtlasEntry2D",
-"language": @"GDScript",
-"path": "res://scripts/item_visuals/CharacterAtlasEntry2D.gd"
-}, {
 "base": "Node2D",
 "class": @"CharacterSkeketonAttachPoint",
 "language": @"GDScript",
@@ -144,16 +134,6 @@ _global_script_classes=[ {
 "language": @"GDScript",
 "path": "res://scripts/items/ItemTemplateGD.gd"
 }, {
-"base": "SkeletonModelEntry",
-"class": @"ItemVisual2D",
-"language": @"GDScript",
-"path": "res://scripts/item_visuals/ItemVisual2D.gd"
-}, {
-"base": "SkeletonModelEntry",
-"class": @"ItemVisualEntry2D",
-"language": @"GDScript",
-"path": "res://scripts/item_visuals/ItemVisualEntry2D.gd"
-}, {
 "base": "Node2D",
 "class": @"LayeredTextureMaker",
 "language": @"GDScript",
@@ -210,28 +190,25 @@ _global_script_classes=[ {
 "path": "res://scripts/game_modules/ui_window_module.gd"
 } ]
 _global_script_class_icons={
+@"GEPencil": "",
 @"HumanoidCharacterBones2D": "",
 @"LayeredTextureMaker": "",
-@"CharacterAtlas2D": "",
 @"CharacterSkeketonAttachPoint": "",
 @"GameModule": "",
 @"PlayerGD": "",
 @"GECanvas": "",
 @"GEBrush": "",
 @"GECut": "",
-@"ItemVisual2D": "",
 @"MobGD": "",
 @"SpeedResource": "",
 @"GELayer": "",
 @"GEDarken": "",
-@"CharacterAtlasEntry2D": "",
 @"EntityAIGD": "",
 @"EntityDataGD": "",
 @"GEAction": "",
 @"GEBucket": "",
 @"GERect": "",
 @"CharacterSkeleton2DGD": "",
-@"ItemVisualEntry2D": "",
 @"SpellEffectVisualBasic": "",
 @"SpellGD": "",
 @"UIWindowModule": "",
@@ -248,8 +225,7 @@ _global_script_class_icons={
 @"GERainbow": "",
 @"BrushPrefabs": "",
 @"GEBrighten": "",
-@"GEMultiLine": "",
-@"GEPencil": ""
+@"GEMultiLine": ""
 }
 Node="input/actionbar_5_11"
 

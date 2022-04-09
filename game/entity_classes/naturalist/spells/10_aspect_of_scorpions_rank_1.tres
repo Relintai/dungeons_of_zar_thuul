@@ -1,7 +1,6 @@
-[gd_resource type="Spell" load_steps=7 format=2]
+[gd_resource type="Spell" load_steps=6 format=2]
 
 [ext_resource path="res://core/entity_resources/1_mana_resource.tres" type="EntityResource" id=1]
-[ext_resource path="res://entity_classes/naturalist/effect_data/aspect_of_scorpions.tres" type="SpellEffectVisual" id=3]
 [ext_resource path="res://scripts/spells/gd_spell_script.gd" type="Script" id=4]
 [ext_resource path="res://entity_classes/naturalist/icons/aspect_of_scorpions.tres" type="Texture" id=5]
 [ext_resource path="res://entity_classes/naturalist/aura_groups/1_aspect_of_scorpions.tres" type="AuraGroup" id=6]
@@ -16,7 +15,6 @@ id = 0
 spell_type = 8
 rank = 1
 icon = ExtResource( 5 )
-visual_spell_effects = ExtResource( 3 )
 text_name = "Aspect of Scorpions"
 text_description = "Range: 26m.
 Casttime: %%cast_cast_time .
