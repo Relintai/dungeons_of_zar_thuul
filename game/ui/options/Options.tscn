@@ -8,42 +8,36 @@
 [ext_resource path="res://ui/options/OptionEnumRow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/options/OptionsSpinboxRow.tscn" type="PackedScene" id=8]
 
-[node name="Options" type="Control"]
+[node name="Options" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -271.5
-margin_top = -236.5
-margin_right = 271.5
-margin_bottom = 236.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="Margin" type="MarginContainer" parent="."]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 539.0
-margin_bottom = 469.0
+margin_right = 396.0
+margin_bottom = 596.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
 
-[node name="TabContainer" type="TabContainer" parent="PanelContainer/VBoxContainer"]
-margin_right = 535.0
-margin_bottom = 431.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 372.0
+margin_bottom = 572.0
+
+[node name="TabContainer" type="TabContainer" parent="Margin/VBoxContainer"]
+margin_right = 352.0
+margin_bottom = 518.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
 
-[node name="Video" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer"]
+[node name="Video" type="VBoxContainer" parent="Margin/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -52,18 +46,21 @@ margin_right = -4.0
 margin_bottom = -4.0
 size_flags_horizontal = 3
 
-[node name="ViewportWidth" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 3 )]
+[node name="ViewportWidth" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 3 )]
+margin_right = 344.0
 margin_bottom = 15.0
 property_label = "Viewport Width"
 
-[node name="ViewportHeight" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 3 )]
+[node name="ViewportHeight" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 3 )]
 margin_top = 23.0
+margin_right = 344.0
 margin_bottom = 38.0
 property_label = "Viewport Height"
 width = false
 
-[node name="ViewportScale" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 8 )]
+[node name="ViewportScale" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 8 )]
 margin_top = 46.0
+margin_right = 344.0
 margin_bottom = 70.0
 property_category = "rendering"
 property_name = "viewport_scale"
@@ -72,57 +69,64 @@ min_value = 20.0
 step = 5.0
 suffix = "%"
 
-[node name="Borderless" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
+[node name="Borderless" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
 margin_top = 78.0
+margin_right = 344.0
 margin_bottom = 104.0
 property_category = "rendering"
 property_name = "borderless"
 property_label = "Borderless Window"
 
-[node name="FullScreen" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
+[node name="FullScreen" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
 margin_top = 112.0
+margin_right = 344.0
 margin_bottom = 138.0
 property_category = "rendering"
 property_name = "fullscreen"
 property_label = "Fullscreen"
 
-[node name="AlwaysOnTop" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
+[node name="AlwaysOnTop" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
 margin_top = 146.0
+margin_right = 344.0
 margin_bottom = 172.0
 property_category = "rendering"
 property_name = "always_on_top"
 property_label = "Always On Top"
 
-[node name="ThreadModel" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 6 )]
+[node name="ThreadModel" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 6 )]
 margin_top = 180.0
+margin_right = 344.0
 margin_bottom = 206.0
 property_category = "rendering"
 property_name = "thread_model"
 property_label = "Thread Model"
 options = [ "Single-Unsafe", "Single-Safe", "Multi Threaded" ]
 
-[node name="Shadows" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
+[node name="Shadows" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
 margin_top = 214.0
+margin_right = 344.0
 margin_bottom = 240.0
 property_category = "rendering"
 property_name = "shadows_enabled"
 property_label = "Shadows Enabled"
 
-[node name="VSync" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
+[node name="VSync" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
 margin_top = 248.0
+margin_right = 344.0
 margin_bottom = 274.0
 property_category = "rendering"
 property_name = "use_vsync"
 property_label = "VSync"
 
-[node name="VSyncViaCompositor" parent="PanelContainer/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
+[node name="VSyncViaCompositor" parent="Margin/VBoxContainer/TabContainer/Video" instance=ExtResource( 4 )]
 margin_top = 282.0
+margin_right = 344.0
 margin_bottom = 308.0
 property_category = "rendering"
 property_name = "vsync_via_compositor"
 property_label = "VSync Via Compositor"
 
-[node name="Interface" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer"]
+[node name="Interface" type="VBoxContainer" parent="Margin/VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -132,14 +136,14 @@ margin_right = -4.0
 margin_bottom = -4.0
 size_flags_horizontal = 3
 
-[node name="OptionToggleRow" parent="PanelContainer/VBoxContainer/TabContainer/Interface" instance=ExtResource( 4 )]
+[node name="OptionToggleRow" parent="Margin/VBoxContainer/TabContainer/Interface" instance=ExtResource( 4 )]
 margin_top = 0.0
 margin_bottom = 26.0
 property_category = "ui"
 property_name = "touchscreen_mode"
 property_label = "Touchscreen Mode"
 
-[node name="OptionsSpinboxRow" parent="PanelContainer/VBoxContainer/TabContainer/Interface" instance=ExtResource( 8 )]
+[node name="OptionsSpinboxRow" parent="Margin/VBoxContainer/TabContainer/Interface" instance=ExtResource( 8 )]
 margin_top = 58.0
 margin_bottom = 82.0
 property_category = "ui"
@@ -150,7 +154,7 @@ max_value = 2.4
 step = 0.01
 rounded = false
 
-[node name="OptionsSpinboxRow2" parent="PanelContainer/VBoxContainer/TabContainer/Interface" instance=ExtResource( 8 )]
+[node name="OptionsSpinboxRow2" parent="Margin/VBoxContainer/TabContainer/Interface" instance=ExtResource( 8 )]
 margin_top = 90.0
 margin_bottom = 114.0
 property_category = "ui"
@@ -161,7 +165,7 @@ max_value = 2.4
 step = 0.01
 rounded = false
 
-[node name="Debug" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer"]
+[node name="Debug" type="VBoxContainer" parent="Margin/VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -171,7 +175,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 size_flags_horizontal = 3
 
-[node name="DebugInfo" type="CheckBox" parent="PanelContainer/VBoxContainer/TabContainer/Debug"]
+[node name="DebugInfo" type="CheckBox" parent="Margin/VBoxContainer/TabContainer/Debug"]
 margin_right = 527.0
 margin_bottom = 26.269
 text = "Show Debug info"
@@ -179,7 +183,7 @@ script = ExtResource( 5 )
 property_category = "debug"
 property_name = "debug_info"
 
-[node name="RemoveProfile" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Debug"]
+[node name="RemoveProfile" type="Button" parent="Margin/VBoxContainer/TabContainer/Debug"]
 margin_top = 34.0
 margin_right = 527.0
 margin_bottom = 60.269
@@ -187,10 +191,10 @@ size_flags_horizontal = 3
 text = "Remove Profile"
 script = ExtResource( 2 )
 
-[node name="Close" type="Button" parent="PanelContainer/VBoxContainer"]
-margin_top = 439.0
-margin_right = 535.0
-margin_bottom = 465.57
+[node name="Close" type="Button" parent="Margin/VBoxContainer"]
+margin_top = 526.0
+margin_right = 352.0
+margin_bottom = 552.57
 text = "Close"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Close" to="." method="hide"]
+[connection signal="pressed" from="Margin/VBoxContainer/Close" to="." method="hide"]

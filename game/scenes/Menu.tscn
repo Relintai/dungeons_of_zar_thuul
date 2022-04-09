@@ -95,22 +95,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="About" type="Button" parent="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer"]
+[node name="Options" type="Button" parent="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer"]
 margin_top = 34.0
 margin_right = 292.0
 margin_bottom = 60.5702
 rect_min_size = Vector2( 120, 0 )
-text = "About"
+text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Options" type="Button" parent="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer"]
+[node name="About" type="Button" parent="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer"]
 margin_top = 68.0
 margin_right = 292.0
 margin_bottom = 94.5702
 rect_min_size = Vector2( 120, 0 )
-text = "Options"
+text = "About"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -199,9 +199,6 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 character_entry = ExtResource( 2 )
 menu_path = NodePath("..")
 name_imput_path = NodePath("CharacterSelector2/VBoxContainer/PanelContainer/VBoxContainer/LineEdit")
@@ -279,8 +276,8 @@ visible = false
 visible = false
 
 [connection signal="pressed" from="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer/Play" to="." method="switch_to_character_selector"]
-[connection signal="pressed" from="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer/About" to="About" method="show"]
 [connection signal="pressed" from="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer/Options" to="Options" method="show"]
+[connection signal="pressed" from="MainMenu/OptionsButton/VBoxContainer2/VBoxContainer/About" to="About" method="show"]
 [connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/Load" to="CharacterSelectorMenu" method="load_character"]
 [connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/New" to="." method="switch_to_character_creator"]
 [connection signal="pressed" from="CharacterSelectorMenu/CharacterSelector/VBoxContainer/Delete" to="CharacterSelectorMenu" method="renounce_character"]
