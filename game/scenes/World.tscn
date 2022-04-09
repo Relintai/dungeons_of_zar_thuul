@@ -2,5 +2,7 @@
 
 [ext_resource path="res://scenes/World.gd" type="Script" id=1]
 
-[node name="World" type="Node2D"]
+[node name="World" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
